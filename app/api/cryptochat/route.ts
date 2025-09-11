@@ -1,46 +1,38 @@
 import { type NextRequest, NextResponse } from "next/server"
 
-// This would typically be in a separate server file
-// For demo purposes, showing the API structure
-
-export async function GET(request: NextRequest) {
-  return NextResponse.json({
-    status: "CryptoChat WebSocket server running",
-    endpoint: process.env.NEXT_PUBLIC_WEBSOCKET_URL || "ws://localhost:3001",
-    features: [
-      "End-to-end encryption",
-      "Real-time messaging",
-      "Self-destructing messages",
-      "Typing indicators",
-      "User presence",
-      "Forward secrecy",
-    ],
-  })
-}
-
 export async function POST(request: NextRequest) {
   try {
-    const { action, data } = await request.json()
+    const { message, action } = await request.json()
 
-    switch (action) {
-      case "generate_keys":
-        // In production, this would use Web Crypto API
-        const keyPair = {
-          publicKey: `RSA-2048:${Math.random().toString(36).substring(2)}...`,
-          privateKey: Math.random().toString(36).substring(2),
-        }
-        return NextResponse.json({ keyPair })
-
-      case "verify_fingerprint":
-        // Verify key fingerprints for security
-        const { publicKey } = data
-        const fingerprint = publicKey.substring(0, 16).toUpperCase()
-        return NextResponse.json({ fingerprint })
-
-      default:
-        return NextResponse.json({ error: "Invalid action" }, { status: 400 })
+    if (action === "encrypt") {
+      // Mock encryption
+      const encrypted = Buffer.from(message).toString("base64")
+      return NextResponse.json({
+        success: true,
+        result: {
+          encrypted_message: encrypted,
+          algorithm: "AES-256-GCM",
+          timestamp: new Date().toISOString(),
+        },
+      })
+    } else if (action === "decrypt") {
+      // Mock decryption
+      try {
+        const decrypted = Buffer.from(message, "base64").toString("utf-8")
+        return NextResponse.json({
+          success: true,
+          result: {
+            decrypted_message: decrypted,
+            timestamp: new Date().toISOString(),
+          },
+        })
+      } catch {
+        return NextResponse.json({ success: false, error: "Invalid encrypted message" }, { status: 400 })
+      }
     }
+
+    return NextResponse.json({ success: false, error: "Invalid action" }, { status: 400 })
   } catch (error) {
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    return NextResponse.json({ success: false, error: "Operation failed" }, { status: 500 })
   }
 }

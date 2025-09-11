@@ -1,116 +1,65 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { createServerClient } from "@supabase/ssr"
-import { cookies } from "next/headers"
 
-export async function GET(request: NextRequest) {
-  const cookieStore = cookies()
+// Mock project storage
+const mockProjects = [
+  {
+    id: "1",
+    name: "Website Redesign",
+    description: "Complete redesign of company website",
+    status: "active" as const,
+    start_date: "2024-01-15",
+    end_date: "2024-03-15",
+    progress: 65,
+    color: "#3B82F6",
+    taskCount: 12,
+  },
+  {
+    id: "2",
+    name: "Mobile App Development",
+    description: "Native mobile app for iOS and Android",
+    status: "planning" as const,
+    start_date: "2024-02-01",
+    end_date: "2024-06-01",
+    progress: 25,
+    color: "#10B981",
+    taskCount: 8,
+  },
+]
 
-  const supabase = createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
-    cookies: {
-      get(name: string) {
-        return cookieStore.get(name)?.value
-      },
-    },
-  })
-
-  const {
-    data: { user },
-    error: authError,
-  } = await supabase.auth.getUser()
-
-  if (authError || !user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
-  }
-
+export async function GET() {
   try {
-    const { data: projects, error } = await supabase
-      .from("projects")
-      .select(`
-        *,
-        project_members!inner(user_id),
-        tasks(id, status)
-      `)
-      .eq("project_members.user_id", user.id)
-
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 })
-    }
-
-    // Calculate progress for each project
-    const projectsWithProgress = projects.map((project) => {
-      const totalTasks = project.tasks.length
-      const completedTasks = project.tasks.filter((task: any) => task.status === "completed").length
-      const progress = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0
-
-      return {
-        ...project,
-        progress,
-        taskCount: totalTasks,
-      }
+    return NextResponse.json({
+      success: true,
+      projects: mockProjects,
     })
-
-    return NextResponse.json({ projects: projectsWithProgress })
   } catch (error) {
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    return NextResponse.json({ success: false, error: "Failed to fetch projects" }, { status: 500 })
   }
 }
 
 export async function POST(request: NextRequest) {
-  const cookieStore = cookies()
-
-  const supabase = createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
-    cookies: {
-      get(name: string) {
-        return cookieStore.get(name)?.value
-      },
-    },
-  })
-
-  const {
-    data: { user },
-    error: authError,
-  } = await supabase.auth.getUser()
-
-  if (authError || !user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
-  }
-
   try {
-    const body = await request.json()
-    const { name, description, startDate, endDate, color } = body
+    const { name, description, startDate, endDate, color } = await request.json()
 
-    // Create project
-    const { data: project, error: projectError } = await supabase
-      .from("projects")
-      .insert({
-        name,
-        description,
-        start_date: startDate,
-        end_date: endDate,
-        color: color || "bg-blue-500",
-        created_by: user.id,
-        status: "planning",
-      })
-      .select()
-      .single()
-
-    if (projectError) {
-      return NextResponse.json({ error: projectError.message }, { status: 500 })
+    const newProject = {
+      id: (mockProjects.length + 1).toString(),
+      name,
+      description,
+      status: "planning" as const,
+      start_date: startDate,
+      end_date: endDate,
+      progress: 0,
+      color: color || "#6B7280",
+      taskCount: 0,
     }
 
-    // Add creator as project owner
-    const { error: memberError } = await supabase.from("project_members").insert({
-      project_id: project.id,
-      user_id: user.id,
-      role: "owner",
+    mockProjects.push(newProject)
+
+    return NextResponse.json({
+      success: true,
+      project: newProject,
     })
-
-    if (memberError) {
-      return NextResponse.json({ error: memberError.message }, { status: 500 })
-    }
-
-    return NextResponse.json({ project })
   } catch (error) {
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    return NextResponse.json({ success: false, error: "Failed to create project" }, { status: 500 })
   }
 }

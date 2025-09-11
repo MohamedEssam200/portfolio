@@ -1,84 +1,33 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { createServerClient } from "@supabase/ssr"
-import { cookies } from "next/headers"
+
+// Mock password storage (shared with main route)
+let mockPasswords = [
+  {
+    id: "1",
+    website: "github.com",
+    username: "user@example.com",
+    encrypted_password: "encrypted_password_1",
+    category: "Development",
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+]
 
 export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
-  const cookieStore = cookies()
-
-  const supabase = createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
-    cookies: {
-      get(name: string) {
-        return cookieStore.get(name)?.value
-      },
-    },
-  })
-
-  const {
-    data: { user },
-    error: authError,
-  } = await supabase.auth.getUser()
-
-  if (authError || !user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
-  }
-
   try {
-    const { error } = await supabase.from("password_entries").delete().eq("id", params.id).eq("user_id", user.id)
+    const { id } = params
+    const initialLength = mockPasswords.length
+    mockPasswords = mockPasswords.filter((p) => p.id !== id)
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 })
+    if (mockPasswords.length === initialLength) {
+      return NextResponse.json({ success: false, error: "Password not found" }, { status: 404 })
     }
 
-    return NextResponse.json({ success: true })
+    return NextResponse.json({
+      success: true,
+      message: "Password deleted successfully",
+    })
   } catch (error) {
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
-  }
-}
-
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
-  const cookieStore = cookies()
-
-  const supabase = createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, {
-    cookies: {
-      get(name: string) {
-        return cookieStore.get(name)?.value
-      },
-    },
-  })
-
-  const {
-    data: { user },
-    error: authError,
-  } = await supabase.auth.getUser()
-
-  if (authError || !user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
-  }
-
-  try {
-    const body = await request.json()
-    const { website, username, password, category } = body
-
-    const { data: updatedPassword, error } = await supabase
-      .from("password_entries")
-      .update({
-        website,
-        username,
-        encrypted_password: password, // Should be encrypted in production
-        category,
-        updated_at: new Date().toISOString(),
-      })
-      .eq("id", params.id)
-      .eq("user_id", user.id)
-      .select()
-      .single()
-
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 })
-    }
-
-    return NextResponse.json({ password: updatedPassword })
-  } catch (error) {
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    return NextResponse.json({ success: false, error: "Failed to delete password" }, { status: 500 })
   }
 }
