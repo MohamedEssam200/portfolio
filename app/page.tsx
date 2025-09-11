@@ -44,8 +44,8 @@ export default function Portfolio() {
                 </h1>
                 <p className="text-xl lg:text-2xl text-emerald-200 font-medium">Penetration Tester & App Developer</p>
                 <p className="text-lg text-white leading-relaxed max-w-2xl">
-                  Specializing in cybersecurity, penetration testing, and full-stack development. Building secure
-                  applications and identifying vulnerabilities to protect digital assets.
+                  Specializing in cybersecurity and full-stack development. Building secure applications and identifying
+                  vulnerabilities.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -69,7 +69,11 @@ export default function Portfolio() {
             <div className="relative flex justify-center lg:justify-end">
               <div className="relative">
                 <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-emerald-400/30 shadow-2xl">
-                  <img src="/profile.jpg" alt="Mohamed Essam" className="w-full h-full object-cover object-center" />
+                  <img
+                    src="/profile.jpg"
+                    alt="Mohamed Essam"
+                    className="w-full h-full object-cover object-[center_20%]"
+                  />
                 </div>
                 <div className="absolute -top-4 -right-4 animate-bounce">
                   <div className="bg-emerald-500 rounded-full p-3 shadow-lg">
