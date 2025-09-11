@@ -1,0 +1,161 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to support dark theme design with proper gradients and colors */
+  --background: oklch(0.08 0 0); /* Dark background for portfolio */
+  --foreground: oklch(0.95 0 0); /* Light text */
+  --card: oklch(0.12 0.02 240 / 0.5); /* Dark card with slight blue tint */
+  --card-foreground: oklch(0.95 0 0); /* Light card text */
+  --popover: oklch(0.12 0 0); /* Dark popover */
+  --popover-foreground: oklch(0.95 0 0); /* Light popover text */
+  --primary: oklch(0.55 0.18 165); /* Emerald primary color */
+  --primary-foreground: oklch(0.08 0 0); /* Dark text on primary */
+  --secondary: oklch(0.45 0.15 160); /* Teal secondary */
+  --secondary-foreground: oklch(0.95 0 0); /* Light text on secondary */
+  --muted: oklch(0.15 0 0); /* Dark muted background */
+  --muted-foreground: oklch(0.65 0 0); /* Medium gray muted text */
+  --accent: oklch(0.55 0.18 165); /* Bright teal accent */
+  --accent-foreground: oklch(0.08 0 0); /* Dark text on accent */
+  --destructive: oklch(0.65 0.15 45); /* Orange destructive */
+  --destructive-foreground: oklch(0.95 0 0); /* Light text on destructive */
+  --border: oklch(0.55 0.18 165 / 0.2); /* Emerald border with transparency */
+  --input: oklch(0.12 0 0); /* Dark input background */
+  --ring: oklch(0.55 0.18 165 / 0.4); /* Emerald focus ring */
+  --chart-1: oklch(0.55 0.18 165); /* Emerald chart color */
+  --chart-2: oklch(0.45 0.15 160); /* Teal chart color */
+  --chart-3: oklch(0.65 0.15 45); /* Orange chart color */
+  --chart-4: oklch(0.75 0 0); /* Light gray chart color */
+  --chart-5: oklch(0.25 0 0); /* Medium gray chart color */
+  --radius: 0.5rem; /* Rounded corners */
+  --sidebar: oklch(0.08 0 0); /* Dark sidebar */
+  --sidebar-foreground: oklch(0.95 0 0); /* Light sidebar text */
+  --sidebar-primary: oklch(0.55 0.18 165); /* Emerald sidebar primary */
+  --sidebar-primary-foreground: oklch(0.08 0 0); /* Dark sidebar primary text */
+  --sidebar-accent: oklch(0.45 0.15 160); /* Teal sidebar accent */
+  --sidebar-accent-foreground: oklch(0.95 0 0); /* Light sidebar accent text */
+  --sidebar-border: oklch(0.15 0 0); /* Dark sidebar border */
+  --sidebar-ring: oklch(0.55 0.18 165 / 0.4); /* Emerald sidebar focus ring */
+}
+
+.dark {
+  --background: oklch(0.08 0 0); /* Very dark background */
+  --foreground: oklch(0.95 0 0); /* Light text */
+  --card: oklch(0.12 0.02 240 / 0.5); /* Dark card background */
+  --card-foreground: oklch(0.95 0 0); /* Light card text */
+  --popover: oklch(0.12 0 0); /* Dark popover */
+  --popover-foreground: oklch(0.95 0 0); /* Light popover text */
+  --primary: oklch(0.55 0.18 165); /* Brighter teal for dark mode */
+  --primary-foreground: oklch(0.08 0 0); /* Dark text on primary */
+  --secondary: oklch(0.45 0.15 160); /* Emerald secondary */
+  --secondary-foreground: oklch(0.95 0 0); /* Light text on secondary */
+  --muted: oklch(0.15 0 0); /* Dark muted background */
+  --muted-foreground: oklch(0.65 0 0); /* Medium gray muted text */
+  --accent: oklch(0.55 0.18 165); /* Bright teal accent */
+  --accent-foreground: oklch(0.08 0 0); /* Dark text on accent */
+  --destructive: oklch(0.65 0.15 45); /* Orange destructive */
+  --destructive-foreground: oklch(0.95 0 0); /* Light text on destructive */
+  --border: oklch(0.55 0.18 165 / 0.2); /* Emerald border with transparency */
+  --input: oklch(0.12 0 0); /* Dark input background */
+  --ring: oklch(0.55 0.18 165 / 0.4); /* Teal focus ring */
+  --chart-1: oklch(0.55 0.18 165); /* Teal chart color */
+  --chart-2: oklch(0.45 0.15 160); /* Emerald chart color */
+  --chart-3: oklch(0.65 0.15 45); /* Orange chart color */
+  --chart-4: oklch(0.75 0 0); /* Light gray chart color */
+  --chart-5: oklch(0.25 0 0); /* Medium gray chart color */
+  --sidebar: oklch(0.08 0 0); /* Very dark sidebar */
+  --sidebar-foreground: oklch(0.95 0 0); /* Light sidebar text */
+  --sidebar-primary: oklch(0.55 0.18 165); /* Teal sidebar primary */
+  --sidebar-primary-foreground: oklch(0.08 0 0); /* Dark sidebar primary text */
+  --sidebar-accent: oklch(0.45 0.15 160); /* Emerald sidebar accent */
+  --sidebar-accent-foreground: oklch(0.95 0 0); /* Light sidebar accent text */
+  --sidebar-border: oklch(0.15 0 0); /* Dark sidebar border */
+  --sidebar-ring: oklch(0.55 0.18 165 / 0.4); /* Teal sidebar focus ring */
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Added custom gradient and animation support */
+  .bg-gradient-to-br {
+    background: linear-gradient(to bottom right, var(--tw-gradient-stops));
+  }
+
+  .from-slate-900 {
+    --tw-gradient-from: #0f172a;
+    --tw-gradient-to: rgb(15 23 42 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+
+  .via-slate-800 {
+    --tw-gradient-to: rgb(30 41 59 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), #1e293b, var(--tw-gradient-to);
+  }
+
+  .via-purple-900 {
+    --tw-gradient-to: rgb(88 28 135 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), #581c87, var(--tw-gradient-to);
+  }
+
+  .to-slate-900 {
+    --tw-gradient-to: #0f172a;
+  }
+
+  .from-emerald-500\/10 {
+    --tw-gradient-from: rgb(16 185 129 / 0.1);
+    --tw-gradient-to: rgb(16 185 129 / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+
+  .to-teal-500\/10 {
+    --tw-gradient-to: rgb(20 184 166 / 0.1);
+  }
+}
