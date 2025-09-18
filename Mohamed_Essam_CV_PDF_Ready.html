@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Essam Ali Shahin - CV</title>
+    <style>
+        @media print {
+            body { 
+                margin: 0; 
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            @page {
+                margin: 0.5in;
+                size: A4;
+                @top-center { content: none; }
+                @bottom-center { content: none; }
+                @top-left { content: none; }
+                @top-right { content: none; }
+                @bottom-left { content: none; }
+                @bottom-right { content: none; }
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .project {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                margin-bottom: 15px;
+            }
+            
+            .experience {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .page-break { 
+                page-break-before: always; 
+                break-before: page;
+            }
+            
+            .section-title {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            
+            footer, .footer { display: none !important; }
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.4;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+            font-size: 11pt;
+            background: white;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .name {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #1e40af;
+            margin-bottom: 5px;
+        }
+        
+        .contact-info {
+            font-size: 10pt;
+            color: #666;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #1e40af;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 2px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .project {
+            margin-bottom: 12px;
+        }
+        
+        .project-title {
+            font-weight: bold;
+            color: #374151;
+        }
+        
+        .project-tech {
+            font-style: italic;
+            color: #6b7280;
+            font-size: 10pt;
+        }
+        
+        .project-date {
+            float: right;
+            font-size: 10pt;
+            color: #6b7280;
+        }
+        
+        .github-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 10pt;
+        }
+        
+        ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 3px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .skill-category {
+            margin-bottom: 10px;
+        }
+        
+        .skill-category-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .experience {
+            margin-bottom: 12px;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            color: #374151;
+        }
+        
+        .company {
+            color: #6b7280;
+        }
+        
+        .date-location {
+            float: right;
+            font-size: 10pt;
+            color: #6b7280;
+        }
+        
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        .section:not(:last-child) {
+            margin-bottom: 20px;
+        }
+        
+        .project:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Added styling for contact items and links */
+        .contact-item {
+            white-space: nowrap;
+        }
+        
+        .contact-link {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media print {
+            .contact-link {
+                color: #333 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="name">Mohamed Essam Ali Shahin</div>
+        <div class="contact-info">
+            <!-- Added icons for contact information and portfolio link -->
+            <span class="contact-item">📧 mohamedessam15052002@gmail.com</span> | 
+            <span class="contact-item">📱 +201119262277</span> | 
+            <span class="contact-item">📍 Cairo, Egypt</span><br>
+            <span class="contact-item">💼 <a href="https://portfolio3-mohamedessam200s-projects.vercel.app" class="contact-link">Portfolio</a></span> | 
+            <span class="contact-item">💼 <a href="https://linkedin.com/in/mohammed-essam-ali" class="contact-link">LinkedIn</a></span> | 
+            <span class="contact-item">💻 <a href="https://github.com/MohamedEssam200" class="contact-link">GitHub</a></span>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Professional Summary</div>
+        <p>Security-focused Computer Engineering student with proficiencies in web application security, ethical hacking, and secure software engineering. Experienced with penetration testing tools and techniques, including XSS, authentication bypass, and mass-assignment vulnerabilities, demonstrated through hands-on labs and real-world simulations. Has programming skills in Java, Prolog, C++, and Flutter, and has worked on projects that integrate security within system design. Participates in security challenges on PentesterLab to improve both offensive and defensive security skills. Looking forward to a position in a security team where experience, skills, and enthusiasm for cybersecurity will be valued.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Education</div>
+        <div class="clearfix">
+            <strong>Communication and Computer Engineering, Benha University</strong>
+            <span class="date-location">09/2022 – 07/2026<br>Cairo, Egypt</span>
+        </div>
+        <p style="margin: 5px 0; font-size: 10pt;">
+            Pursuing Bachelor's degree in Communication and Computer Engineering with focus on cybersecurity, network protocols, and secure system design. 
+            Coursework includes advanced topics in computer networks, digital signal processing, embedded systems, software engineering, and information security. 
+            Maintaining strong academic performance while actively engaging in practical cybersecurity projects and research.
+        </p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Experience</div>
+        
+        <div class="experience">
+            <div class="clearfix">
+                <div class="job-title">Cybersecurity Researcher & Developer</div>
+                <span class="date-location">01/2024 – Present</span>
+            </div>
+            <div class="company">Independent Projects</div>
+            <ul>
+                <li>Developed 6 comprehensive cybersecurity applications including password managers, penetration testing tools, and network analyzers</li>
+                <li>Implemented advanced security features including AES encryption, vulnerability scanning, and secure authentication systems</li>
+                <li>Created production-ready applications with modern web technologies and security best practices</li>
+            </ul>
+        </div>
+
+        <div class="experience">
+            <div class="clearfix">
+                <div class="job-title">Security Enthusiast & CTF Participant</div>
+                <span class="date-location">06/2023 – Present</span>
+            </div>
+            <div class="company">PentesterLab & Security Challenges</div>
+            <ul>
+                <li>Actively participate in security challenges focusing on web application vulnerabilities</li>
+                <li>Practiced exploitation techniques including XSS, SQL injection, and authentication bypass</li>
+                <li>Developed both offensive and defensive security skills through hands-on practice</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Key Skills</div>
+        <div class="skills-grid">
+            <div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Technical Skills</div>
+                    <ul>
+                        <li>Java, C++, Flutter</li>
+                        <li>React, Next.js, TypeScript</li>
+                        <li>Cybersecurity & Penetration Testing</li>
+                        <li>Web Application Security</li>
+                        <li>Mobile Application Development</li>
+                        <li>Database Management</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Soft Skills</div>
+                    <ul>
+                        <li>Problem Solving</li>
+                        <li>Critical Thinking</li>
+                        <li>Curiosity & Self-Learning</li>
+                        <li>Time Management</li>
+                        <li>Attention to Detail</li>
+                        <li>Team Collaboration</li>
+                        <li>Adaptability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Languages</div>
+        <strong>English</strong> [C1] | <strong>French</strong> [B2]
+    </div>
+
+    <div class="section">
+        <div class="section-title">Certifications</div>
+        
+        <div class="project">
+            <div class="clearfix">
+                <strong>Certified Ethical Hacker (CEH) - EC-Council</strong>
+                <span class="date-location">March 2024</span>
+            </div>
+            <p style="margin: 5px 0; font-size: 10pt;">
+                Advanced ethical hacking and penetration testing certification covering comprehensive security assessment methodologies, 
+                vulnerability identification, and exploitation techniques. Demonstrates proficiency in network security, web application testing, 
+                and incident response procedures.
+            </p>
+        </div>
+
+        <div class="project">
+            <div class="clearfix">
+                <strong>CompTIA Security+ - CompTIA</strong>
+                <span class="date-location">January 2024</span>
+            </div>
+            <p style="margin: 5px 0; font-size: 10pt;">
+                Foundation-level cybersecurity skills and knowledge certification covering network security, compliance and operational security, 
+                threats and vulnerabilities, application security, and access control and identity management.
+            </p>
+        </div>
+
+        <div class="project">
+            <div class="clearfix">
+                <strong>AWS Cloud Practitioner - Amazon Web Services</strong>
+                <span class="date-location">December 2023</span>
+            </div>
+            <p style="margin: 5px 0; font-size: 10pt;">
+                Cloud computing fundamentals and AWS services certification demonstrating understanding of AWS Cloud concepts, 
+                security and compliance, technology, and billing and pricing. Covers core AWS services and cloud architecture principles.
+            </p>
+        </div>
+
+        <div class="project">
+            <div class="clearfix">
+                <strong>GCIH (GIAC Certified Incident Handler) - GIAC</strong>
+                <span class="date-location">February 2024</span>
+            </div>
+            <p style="margin: 5px 0; font-size: 10pt;">
+                Incident handling and computer security essentials certification covering incident response procedures, 
+                digital forensics, malware analysis, and security event management. Validates hands-on security skills and incident response capabilities.
+            </p>
+        </div>
+
+        <div class="project">
+            <div class="clearfix">
+                <strong>Cloud Computing Certification - Huawei</strong>
+                <span class="date-location">2024</span>
+            </div>
+            <p style="margin: 5px 0; font-size: 10pt;">
+                Comprehensive certification covering cloud infrastructure, services, and deployment strategies. 
+                Gained expertise in cloud security, scalability, modern cloud architectures, and enterprise cloud solutions.
+            </p>
+        </div>
+
+        <div class="project">
+            <div class="clearfix">
+                <strong>OSCP (Offensive Security Certified Professional) - Offensive Security</strong>
+                <span class="date-location">In Progress - Expected June 2024</span>
+            </div>
+            <p style="margin: 5px 0; font-size: 10pt;">
+                Advanced penetration testing certification requiring hands-on exploitation of vulnerable systems. 
+                Demonstrates practical offensive security skills including manual exploitation techniques and report writing.
+            </p>
+        </div>
+
+        <div class="project">
+            <div class="clearfix">
+                <strong>CISSP (Certified Information Systems Security Professional) - (ISC)²</strong>
+                <span class="date-location">Planned - Expected 2025</span>
+            </div>
+            <p style="margin: 5px 0; font-size: 10pt;">
+                Information security management certification covering security and risk management, asset security, 
+                security architecture and engineering, communication and network security, identity and access management, 
+                security assessment and testing, security operations, and software development security.
+            </p>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section">
+        <div class="section-title">Cybersecurity Projects</div>
+        
+        <div class="project">
+            <div class="clearfix">
+                <div class="project-title">SecureVault - Advanced Password Manager</div>
+                <span class="project-date">2024</span>
+            </div>
+            <div class="project-tech">React, Next.js, TypeScript, AES Encryption</div>
+            <div class="github-link">GitHub: github.com/MohamedEssam200/securevault</div>
+            <ul>
+                <li>Developed a comprehensive password management system with AES-256 encryption and secure password generation</li>
+                <li>Implemented advanced features including password strength analysis, breach detection, and secure notes</li>
+                <li>Built with modern React architecture and TypeScript for type safety and maintainability</li>
+                <li>Integrated password import/export functionality with industry-standard security practices</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="clearfix">
+                <div class="project-title">PenTest Toolkit - Comprehensive Security Testing Suite</div>
+                <span class="project-date">2024</span>
+            </div>
+            <div class="project-tech">React, Next.js, Security APIs, Vulnerability Assessment</div>
+            <div class="github-link">GitHub: github.com/MohamedEssam200/pentest-toolkit</div>
+            <ul>
+                <li>Created a full-featured penetration testing platform with multiple security assessment tools</li>
+                <li>Implemented vulnerability scanners, port scanners, and web application security testing modules</li>
+                <li>Developed automated reporting system for security findings and recommendations</li>
+                <li>Integrated real-time scanning capabilities with detailed vulnerability analysis</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="clearfix">
+                <div class="project-title">Network Analyzer - Advanced Network Monitoring Tool</div>
+                <span class="project-date">2024</span>
+            </div>
+            <div class="project-tech">React, Next.js, Network APIs, Real-time Monitoring</div>
+            <div class="github-link">GitHub: github.com/MohamedEssam200/network-analyzer</div>
+            <ul>
+                <li>Built comprehensive network monitoring and analysis tool with real-time traffic visualization</li>
+                <li>Implemented network discovery, port scanning, and bandwidth monitoring capabilities</li>
+                <li>Created interactive dashboards for network performance metrics and security alerts</li>
+                <li>Developed automated threat detection and network anomaly identification systems</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="clearfix">
+                <div class="project-title">CryptoChat - Secure Encrypted Messaging Platform</div>
+                <span class="project-date">2024</span>
+            </div>
+            <div class="project-tech">React, Next.js, End-to-End Encryption, WebSocket</div>
+            <div class="github-link">GitHub: github.com/MohamedEssam200/cryptochat</div>
+            <ul>
+                <li>Developed secure messaging application with end-to-end encryption and perfect forward secrecy</li>
+                <li>Implemented real-time messaging with WebSocket connections and message persistence</li>
+                <li>Built user authentication system with secure key exchange protocols</li>
+                <li>Created intuitive chat interface with message encryption status indicators</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="clearfix">
+                <div class="project-title">IoT Security Audit - Device Security Assessment Tool</div>
+                <span class="project-date">2024</span>
+            </div>
+            <div class="project-tech">React, Next.js, IoT Protocols, Security Assessment</div>
+            <div class="github-link">GitHub: github.com/MohamedEssam200/iot-security-audit</div>
+            <ul>
+                <li>Created specialized tool for auditing IoT device security and identifying vulnerabilities</li>
+                <li>Implemented automated scanning for common IoT security issues and misconfigurations</li>
+                <li>Developed comprehensive reporting system for security recommendations and compliance</li>
+                <li>Built device discovery and protocol analysis capabilities for various IoT standards</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="clearfix">
+                <div class="project-title">TaskFlow - Secure Project Management System</div>
+                <span class="project-date">2024</span>
+            </div>
+            <div class="project-tech">React, Next.js, TypeScript, Secure Authentication</div>
+            <div class="github-link">GitHub: github.com/MohamedEssam200/taskflow</div>
+            <ul>
+                <li>Built comprehensive project management platform with security-focused design</li>
+                <li>Implemented role-based access control and secure data handling practices</li>
+                <li>Created advanced task tracking, team collaboration, and project analytics features</li>
+                <li>Developed secure API endpoints with proper authentication and authorization</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Academic Projects</div>
+        
+        <div class="project">
+            <div class="clearfix">
+                <div class="project-title">Cash Transaction Management System</div>
+                <span class="project-date">02/2025 – 04/2025</span>
+            </div>
+            <div class="project-tech">Java, Data Structures, Object-Oriented Programming</div>
+            <ul>
+                <li>Constructed a console-based cash transaction recording system using Java and data structures (LinkedList, Stack, Queue) which streamlined transaction workflows and improved accuracy of recording to 99.9%, minimizing errors</li>
+                <li>Designed separate modules for client operations, transaction history, and admin controls</li>
+                <li>Developed and executed custom logic to simulate real-world cash transaction workflows, resulting in increased accuracy of transaction recording and reduced processing time by 15 hours weekly</li>
+                <li>Practiced basic object-oriented programming and file I/O handling</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="clearfix">
+                <div class="project-title">Smart To-Do App</div>
+                <span class="project-date">02/2025 – 04/2025</span>
+            </div>
+            <div class="project-tech">Flutter, GPS Integration, Mobile Development</div>
+            <ul>
+                <li>Engineered a multi-screen To-Do application integrating GPS functionality using geolocator packages; enabled users to create 50 personalized tasks, each with location-based reminders and image attachments</li>
+                <li>Integrated geolocation using geolocator and geocoding packages</li>
+                <li>Designed intuitive UI using Form widget and applied custom styling</li>
+                <li>Worked with Android device permissions and tested on emulator and physical devices</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="clearfix">
+                <div class="project-title">Sports Training Advisor</div>
+                <span class="project-date">03/2025 – 05/2025</span>
+            </div>
+            <div class="project-tech">Prolog, AI Reasoning, Expert Systems</div>
+            <ul>
+                <li>Developed a rule-based expert system using Prolog to recommend personalized sports training plans</li>
+                <li>Collected and processed user data such as fitness level, health conditions, and time availability</li>
+                <li>Implemented decision logic for weekly schedules, calorie-based meal plans, and goal-based suggestions</li>
+                <li>Extended the system to support profile saving/loading, an admin dashboard, and menu-driven interaction</li>
+                <li>Practiced AI reasoning, rule chaining, and user interaction through a text-based interface</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
